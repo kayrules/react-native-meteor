@@ -55,6 +55,22 @@ module.exports = {
       typeof callback == 'function' && callback(err);
     });
   },
+  loginWithLDAP(userId, password, customLdapOptions, callback) {
+    this._startLoggingIn();
+    var loginRequest = {
+        username: userId,
+        ldapPass: password,
+        ldap: true,
+        ldapOptions: customLdapOptions
+    };
+    call("login", loginRequest, (err, result)=>{
+      this._endLoggingIn();
+
+      this._handleLoginCallback(err, result);
+
+      typeof callback == 'function' && callback(err);
+    });
+  },
   logoutOtherClients(callback = ()=>{}) {
     call('getNewToken', (err, res) => {
       if(err) return callback(err);
