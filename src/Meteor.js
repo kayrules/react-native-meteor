@@ -38,6 +38,10 @@ module.exports = {
   collection,
   FSCollection,
   createContainer,
+  // -- khairul
+  RandomId() {
+    return Random.id();
+  },
   getData() {
     return Data;
   },
