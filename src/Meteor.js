@@ -39,7 +39,7 @@ module.exports = {
   FSCollection,
   createContainer,
   // -- khairul
-  RandomId() {
+  randomId() {
     return Random.id();
   },
   getData() {
